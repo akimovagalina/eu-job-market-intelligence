@@ -7,9 +7,13 @@
 
 ## Структура проекта
 eu-job-market-intelligence/
+
 ├── data/
+
 │   ├── raw_jobs.csv        # Сырые вакансии (не добавлены в GitHub)
+
 │   └── clean_jobs.csv      # Очищенные вакансии (не добавлены в GitHub)
+
 ├── src/
 │   ├── collect_data.py     # Сбор вакансий через API
 │   ├── clean_jobs.py       # Очистка и нормализация данных
