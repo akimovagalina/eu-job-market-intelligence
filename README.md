@@ -24,9 +24,15 @@ eu-job-market-intelligence/
 
 │   └── dashboard.py        # Streamlit дашборд
 
+│   └── run_pipeline.py     # Запуск всего пайплайна автоматически
+
+│   └── setup_github.sh     # Скрипт для первоначальной настройки репозитория на GitHub
+
 ├── requirements.txt        # Все необходимые зависимости
 
 └── README.md               # Этот файл
+
+└── .gitignore              # Не переносим некоторые файлы в репозиторий на GitHub
 
 ---
 
@@ -34,14 +40,8 @@ eu-job-market-intelligence/
 
 1. Клонируем репозиторий:
 
-```bash
 git clone https://github.com/<your-username>/eu-job-market-intelligence.git
 cd eu-job-market-intelligence
-2.	Создаем и активируем виртуальное окружение:
-python3 -m venv venv
-source venv/bin/activate  # Mac / Linux
-# или
-venv\Scripts\activate     # Windows
 
 2.	Создаем и активируем виртуальное окружение:
 python3 -m venv venv
@@ -49,12 +49,24 @@ source venv/bin/activate  # Mac / Linux
 # или
 venv\Scripts\activate     # Windows
 
-3. Анализ вакансий
-python src/analyze_jobs.py
+2.	Создаем и активируем виртуальное окружение:
+python3 -m venv venv
+source venv/bin/activate  # Mac / Linux
+# или
+venv\Scripts\activate     # Windows
 
-4. Запуск дашборда
+3. Устанавливаем зависимости
+pip install -r requirements.txt
+
+**Использование**
+1.	Собрать и очистить данные, проанализировать рынок и увидеть дашборд:
+python src/run_pipeline.py
+
+2.	Запустить интерактивный дашборд отдельно (Streamlit):
 streamlit run src/dashboard.py
-Дашборд откроется в браузере по адресу: http://localhost:8501.
+
+3.	Настройка GitHub (однократно, после клонирования):
+bash setup_github.sh
 
 Особенности проекта
 	•	Сбор вакансий через API arbeitnow.com.
@@ -66,9 +78,10 @@ streamlit run src/dashboard.py
 
 ⸻
 
-Важно
-	•	CSV-файлы с данными (raw_jobs.csv, clean_jobs.csv) не включены в репозиторий.
-	•	Для воспроизведения проекта нужно сначала запустить collect_data.py и clean_jobs.py.
+Примечания
+	•	Файл data/raw_jobs.csv и data/clean_jobs.csv можно не пушить на GitHub (добавлен в .gitignore), если нужно только хранить код и визуализации.
+	•	Скрипт run_pipeline.py собирает новые вакансии, очищает их, анализирует и выводит KPI в консоль.
+	•	Для автоматического обновления проекта на GitHub можно добавить в run_pipeline.py команды git add, commit и push.
 
 ⸻
 
