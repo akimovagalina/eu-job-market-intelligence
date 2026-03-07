@@ -44,18 +44,14 @@ git clone https://github.com/<your-username>/eu-job-market-intelligence.git
 cd eu-job-market-intelligence
 
 2.	Создаем и активируем виртуальное окружение:
-python3 -m venv venv
-source venv/bin/activate  # Mac / Linux
-или
-venv\Scripts\activate     # Windows
-
-2.	Создаем и активируем виртуальное окружение:
+   
 python3 -m venv venv
 source venv/bin/activate  # Mac / Linux
 или
 venv\Scripts\activate     # Windows
 
 3. Устанавливаем зависимости
+   
 pip install -r requirements.txt
 
 **Использование**
