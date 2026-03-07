@@ -15,12 +15,19 @@ eu-job-market-intelligence/
 │   └── clean_jobs.csv      # Очищенные вакансии (не добавлены в GitHub)
 
 ├── src/
+
 │   ├── collect_data.py     # Сбор вакансий через API
+
 │   ├── clean_jobs.py       # Очистка и нормализация данных
+
 │   ├── analyze_jobs.py     # Анализ вакансий и навыков
+
 │   └── dashboard.py        # Streamlit дашборд
+
 ├── requirements.txt        # Все необходимые зависимости
+
 └── README.md               # Этот файл
+
 ---
 
 ## Установка
