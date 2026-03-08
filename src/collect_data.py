@@ -19,12 +19,27 @@ while True:
     url = f"{base_url}?page={page}"
 
     try:
-        response = requests.get(url)
+        response = requests.get(f"{BASE_URL}?page={page}")
 
-        # Проверяем статус ответа
-        response.raise_for_status()
+        # если API вернул ошибку — остановить сбор
+        if response.status_code != 200:
+            print(f"API stopped responding. Status code: {response.status_code}")
+            break
+
         data = response.json()
-        print(data["data"][0].keys())
+
+        # если вакансий больше нет
+        if not data["data"]:
+            print("No more jobs found.")
+            break
+
+        for job in data["data"]:
+            jobs.append(job)
+
+        page += 1
+
+        # небольшая пауза чтобы не словить лимит API
+        time.sleep(1)
 
     except requests.exceptions.RequestException as e:
         print("Request error:", e)
