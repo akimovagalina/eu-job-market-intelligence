@@ -41,6 +41,7 @@ eu-job-market-intelligence/
 1. Клонируем репозиторий:
 
 git clone https://github.com/akimovagalina/eu-job-market-intelligence.git
+
 cd eu-job-market-intelligence
 
 2.	Создаем и активируем виртуальное окружение:
