@@ -1,6 +1,6 @@
 # EU Job Market Intelligence
 
-Интерактивный проект для анализа вакансий **Data Analysts / Data Specialists** в Европе.  
+Интерактивный проект для анализа вакансий в Европе.  
 Проект собирает данные с открытого API, очищает их, анализирует ключевые навыки и визуализирует информацию на дашборде.
 
 ---
@@ -40,7 +40,7 @@ eu-job-market-intelligence/
 
 1. Клонируем репозиторий:
 
-git clone https://github.com/<your-username>/eu-job-market-intelligence.git
+git clone https://github.com/akimovagalina/eu-job-market-intelligence.git
 cd eu-job-market-intelligence
 
 2.	Создаем и активируем виртуальное окружение:
@@ -60,9 +60,6 @@ python src/run_pipeline.py
 
 2.	Запустить интерактивный дашборд отдельно (Streamlit):
 streamlit run src/dashboard.py
-
-3.	Настройка GitHub (однократно, после клонирования):
-bash setup_github.sh
 
 Особенности проекта
 	•	Сбор вакансий через API arbeitnow.com.
@@ -95,4 +92,6 @@ bash setup_github.sh
 Автор
 
 Акимова Галина
-GitHub￼ | LinkedIn￼
+
+GitHub￼ https://github.com/akimovagalina/
+LinkedIn￼https://www.linkedin.com/in/galina-akimova-a72a29257/
