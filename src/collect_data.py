@@ -16,10 +16,8 @@ while True:
 
     print(f"Collecting page {page}...")
 
-    url = f"{base_url}?page={page}"
-
     try:
-        response = requests.get(f"{BASE_URL}?page={page}")
+        response = requests.get(f"{base_url}?page={page}")
 
         # если API вернул ошибку — остановить сбор
         if response.status_code != 200:
@@ -28,13 +26,15 @@ while True:
 
         data = response.json()
 
+        jobs = data.get("data", [])
+
         # если вакансий больше нет
-        if not data["data"]:
+        if not jobs:
             print("No more jobs found.")
             break
 
-        for job in data["data"]:
-            jobs.append(job)
+        for job in jobs:
+            all_jobs.append(job)
 
         page += 1
 
@@ -49,19 +49,6 @@ while True:
         print("Invalid JSON response")
         break
 
-    jobs = data.get("data", [])
-
-    # если вакансий больше нет — выходим
-    if not jobs:
-        print("No more jobs found.")
-        break
-
-    all_jobs.extend(jobs)
-
-    page += 1
-
-    # пауза чтобы не перегружать API
-    time.sleep(2)
 
 # создаём DataFrame
 df = pd.DataFrame(all_jobs)
